@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let mydata=[1,2,3,4,5];
+    let display =mydata.reduce(function(pre,vale)
+    {
+        console.log(`pre:${pre},current:${vale}`)
+        return pre+vale;
+    },0);
+    console.log(display);
+</script>
+
+</html>
