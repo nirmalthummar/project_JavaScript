@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,16 +6,32 @@
     <title>Document</title>
 </head>
 <body>
+
+    <script>
+
+        let mydata= [1,1,1,1,22,22,33];
+
+       
+
+       
+
+       let display = mydata.reduce(function(pre,value) {
+
+        
+        console.log(`pre ${pre} value : ${value}`);
+        if(pre.includes(value)== false)
+        {
+            pre.push(value);
+        }
+
+        return pre;
+       
+
+        },[]);
+
+        console.log(display);
+
+    </script>
     
 </body>
-<script>
-    let mydata=[1,2,3,4,5];
-    let display =mydata.reduce(function(pre,vale)
-    {
-        console.log(`pre:${pre},current:${vale}`)
-        return pre+vale;
-    },0);
-    console.log(display);
-</script>
-
 </html>
