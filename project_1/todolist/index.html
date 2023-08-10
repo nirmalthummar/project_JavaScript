@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>.
+    
+    <input type="text"  id="todo"/>
+    <button onclick="addItems()"
+>Save</button>
+<div id="display"> </div>
+    <script>
+
+        const todoitems = [];
+
+        function addItems()
+        {
+            let d =  document.getElementById("todo").value;
+
+            todoitems.unshift(d);
+
+            display();
+
+        }
+function display()
+{
+    let d =todoitems.map(function(value,index) {
+
+        return `<div>${value} <button
+             onclick="deleteItem(${index})">Delete</button>
+             </div>`
+    });
+
+    document.getElementById("display").innerHTML = d.join("")
+
+
+}
+
+function deleteItem(index)
+{
+    todoitems.splice(index,1);
+    display();
+
+}
+
+
+
+
+    </script>
+</body>
+</html>
