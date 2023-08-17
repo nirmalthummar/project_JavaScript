@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let obj= [
+            {
+                name : "pune",
+                Id:22
+            },
+            {
+                name:"vadodara",
+                Id:24
+            },
+            {
+                name:"ahe",
+                Id:24
+            }
+
+        ];
+
+            obj.sort(function(a,b) {
+
+                if(a.name > b.name)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            })
+
+        
+console.log(obj);
+
+
+        let cities = [1,22,111,1111,22222,34444,1];
+
+        cities.sort(function(a,b){
+
+           
+
+           return b-a;
+            
+        });
+        console.log(cities);
+
+
+    </script>
+</body>
+</html>

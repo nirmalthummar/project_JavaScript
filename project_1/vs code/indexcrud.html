@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="term" />
+
+    <button onclick="saveInfo()">Save</button>
+
+    <ul id="display"></ul>
+    <script>
+
+        let myarray= [];
+
+        function saveInfo()
+        {
+            var t = document.getElementById("term").value;
+
+            myarray.push(t);
+
+            display();
+
+           
+
+
+
+
+        }
+
+        function display()
+        {
+            let p =  myarray.map(function(value,index) {
+
+
+return (`<li>${value} 
+    <button onclick="deleteInfo(${index})">DeleteFile</button> </li>`)
+
+})
+
+document.getElementById("display").innerHTML = p.join(" ");
+        }
+
+
+        function deleteInfo(t)
+        {
+            myarray.splice(t,1);
+            display();
+        }
+
+
+        display();
+
+
+    </script>
+    
+</body>
+</html>
