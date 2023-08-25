@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MeNu</title>
+    <title>Menu</title>
     <!-- font-awesome -->
     <link
       rel="stylesheet"
@@ -11,14 +11,28 @@
     />
     <!-- styles -->
     <link rel="stylesheet" href="styles.css" />
+    
   </head>
   <body>
     <section class="menu" >
       <!-- title -->
       <div class="title">
-        <h2>our menu item</h2>
+        <h2>our menu</h2>
         <div class="underline"></div>
       </div>
+      
+      <button class='btn' 
+   onclick="lowprice('asc')">
+  Low to High</button>
+
+  <button class='btn' 
+  onclick="lowprice('dec')">
+  High to Low</button>
+
+  <div id="count"></div>
+  <div id="price"></div>
+  <div id="quan"></div>
+
       <!-- filter buttons -->
       <div class="btn-container" id="btn">
         
@@ -39,10 +53,12 @@
               Repudiandae, sint quam. Et reprehenderit fugiat nesciunt inventore
               laboriosam excepturi! Quo, officia.
             </p>
+            
+            
           </div>
         </article>
 
-
+       
        
        
       </div>
@@ -50,7 +66,6 @@
 
     <script src="app.js" ></script>
     <!-- javascript -->
-    <script src="app.js"></script>
      
   </body>
 </html>

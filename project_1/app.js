@@ -81,14 +81,16 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+let carts=[];
+
 
 const newbutton = menu.map(function(value,index) {
 
   return `<button class='btn' 
   onclick="filter('${value.category}')">
-  ${value.category}</button>`
+  ${value.category}</button>  
+  `
 })
-
 
 
 
@@ -113,7 +115,7 @@ displayMenu(menu)
 
 function displayMenu(mydata)
 {
-  const newmenu = mydata.map(function(value) {
+  const newmenu = mydata.map(function(value,index) {
 
 
     return `    <article class="menu-item">
@@ -126,6 +128,10 @@ function displayMenu(mydata)
       <p class="item-text">
        ${value.desc}
       </p>
+      <a href="#"><button class='btn' 
+              onclick="addToCart(${index})">
+              add to cart</button></a>
+      
     </div>
   </article>
   `
@@ -136,5 +142,79 @@ function displayMenu(mydata)
 }
 
 
+function lowprice(type)
+{
+  menu.sort(function(a,b) {
+
+    if(type=="asc")
+    {
+    return a.price-b.price;
+
+    }
+    else
+    {
+      return b.price-a.price;
+
+    }
+
+  })
+
+  displayMenu(menu);
+}
+
+
 
 document.getElementById("btn").innerHTML = newbutton.join(" ");
+
+
+function addToCart(index)
+        {
+            let itemtoadd = menu[index];
+            if(carts.length == 0)
+            {
+
+     let newjson = {item: itemtoadd, quality: 1};
+            carts.push(newjson);
+
+            }
+            else
+            {
+
+                let ind = carts.findIndex(function(value) {
+
+
+                    return value.item.id == itemtoadd.id;
+
+                })
+
+                if(ind >=0)
+                {
+                    carts[ind].quality =carts[ind].quality+1;
+
+                }
+                else
+                {
+                    let newjson = {item: itemtoadd, quality: 1};
+            carts.push(newjson);
+
+                }
+
+                
+
+
+            }
+
+            console.log(carts);
+
+
+            let totalprice = carts.reduce(function(pre,curr) {
+
+                return  pre + curr.item.price * curr.quality;
+
+            },0);
+
+            console.log(totalprice);
+            document.getElementById("count").innerHTML = carts.length;
+            document.getElementById("price").innerHTML = totalprice;
+            document.getElementById("quan").innerHTML = curr.quality;
+        }
